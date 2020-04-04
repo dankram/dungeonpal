@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-dungeonpal-dev-212457-authRole",
+            "UnauthRoleArn": "arn:aws:iam::830088798199:role/amplify-dungeonpal-dev-212457-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::830088798199:role/amplify-dungeonpal-dev-212457-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-dungeonpal-dev-212457-deployment",
+            "UnauthRoleName": "amplify-dungeonpal-dev-212457-unauthRole",
+            "StackName": "amplify-dungeonpal-dev-212457",
+            "StackId": "arn:aws:cloudformation:us-west-2:830088798199:stack/amplify-dungeonpal-dev-212457/40cdd010-762c-11ea-8a94-028b57c1617e",
+            "AmplifyAppId": "dltopsnz0n7s1"
+        }
+    }
+}

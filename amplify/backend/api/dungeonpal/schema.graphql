@@ -1,0 +1,80 @@
+type Ship @model(subscriptions: null) {
+  id: ID!
+  name: String
+  upgrades: [ShipUpgrade] @connection(keyName: "byShip", fields: ["id"])
+}
+
+type Upgrade @model(subscriptions: null, queries: null, mutations: null) {
+  id: ID!
+  name: String
+  description: String
+}
+
+type ShipUpgrade
+@model(queries: null, subscriptions: null)
+@key(name: "byShip", fields: ["shipID", "upgradeID"]) {
+  id: ID!
+  shipID: ID!
+  upgradeID: ID!
+  upgrade: Upgrade! @connection(fields: ["upgradeID"])
+}
+
+type Character @model(subscriptions: null) {
+  id: ID!
+  name: String
+  avatarURL: String
+  HP: Int
+  maxHP: Int
+  armor: Int
+  XP: Int
+  strength: Int
+  agility: Int
+  intelligence: Int
+  willpower: Int
+  money: Int
+  gear: [String]
+  classID: ID!
+  class: Class @connection(fields: ["classID"])
+  skills: [CharacterSkill] @connection(keyName: "byCharacter", fields: ["id"])
+  abilities: [CharacterAbility] @connection(keyName: "byCharacter", fields: ["id"])
+}
+
+type Class @model(subscriptions: null, queries: null, mutations: null) {
+  id: ID!
+  name: String
+  description: String
+  abilities: [Ability] @connection(keyName: "byClass", fields: ["id"])
+}
+
+type Skill @model(subscriptions: null) {
+  id: ID!
+  name: String
+  description: String
+}
+
+type Ability 
+@model(subscriptions: null, queries: null, mutations: null) 
+@key(name: "byClass", fields: ["classID"]) {
+  id: ID!
+  name: String
+  description: String
+  classID: ID!
+}
+
+type CharacterSkill 
+@model(queries: null, subscriptions: null)
+@key(name: "byCharacter", fields: ["characterID", "skillID"]) {
+  id: ID!
+  characterID: ID!
+  skillID: ID!
+  skill: Skill! @connection(fields: ["skillID"])
+}
+
+type CharacterAbility 
+@model(queries: null, subscriptions: null)
+@key(name: "byCharacter", fields: ["characterID", "abilityID"]) {
+  id: ID!
+  characterID: ID!
+  abilityID: ID!
+  ability: Ability! @connection(fields: ["abilityID"])
+}
