@@ -1,0 +1,4 @@
+dungeonpalWeb:
+  component: serverless-next.js
+  inputs:
+    domain: ["dev", "dungeonpal.com"]
